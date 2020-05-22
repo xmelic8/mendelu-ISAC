@@ -13,4 +13,3 @@ $bayesAnalyzer->training($wordsGenerator::POSITIVE_FILE);
 $bayesAnalyzer->training($wordsGenerator::NEGATIVE_FILE);
 $bayesAnalyzer->createClassification("source.txt");
 $bayesAnalyzer->createStatistics();
-//$bayesAnalyzer->printResult();

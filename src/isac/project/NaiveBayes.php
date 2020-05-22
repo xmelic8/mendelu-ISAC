@@ -13,6 +13,12 @@ class NaiveBayes
     CONST MIN_POSITIVE = 0.4;
     CONST MAX_POSITIVE = 0.6;
 
+    CONST TITLE_1 = "--------Final statistics--------\n";
+    CONST TITLE_2 = "\n--------TOP 10 match results--------\n";
+    CONST TITLE_3 = "\n--------10 worst match results--------\n";
+
+    CONST GET_LENGHT_FINAL_ARRAY = 10;
+
     /**
      * @var WordsVocabularyList
      */
@@ -182,15 +188,6 @@ class NaiveBayes
     }
 
     /**
-     *
-     */
-    public function printResult() :void{
-        foreach ($this->queueInput as $obj){
-            echo("LINE:".$obj->getID().": P(".$obj->getCount()["+"].")/N(".$obj->getCount()["-"].") ----- ".$obj->getText()."\n");
-        }
-    }
-
-    /**
      * @param float $valuePositive
      * @return string
      */
@@ -251,9 +248,6 @@ class NaiveBayes
            $finalArray["count"]++;
         }
 
-        echo("--------Final statistics--------\n");
-        print_r($finalArray);
-
         usort($finalPositive, function($a, $b) {
             $tmpA = $a->getCount();
             $tmpB = $b->getCount();
@@ -268,10 +262,39 @@ class NaiveBayes
             return $tmpB["-"] <=> $tmpA["-"];
         });
 
-        echo("\n--------TOP 10 match results--------\n");
-        print_r(array_slice($finalPositive, 0, 10));
+        $finalPositive = array_slice($finalPositive, 0, self::GET_LENGHT_FINAL_ARRAY);
+        $finalNegative = array_slice($finalNegative, 0, self::GET_LENGHT_FINAL_ARRAY);
 
-        echo("\n--------10 worst match results--------\n");
-        print_r(array_slice($finalNegative, 0, 10));
+        $this->printToTerminal($finalArray, $finalPositive, $finalNegative);
+        $this->printToFile($finalArray, $finalPositive, $finalNegative);
+    }
+
+    private function printToTerminal(array $finalArray, array $finalPositive, array $finalNegative) :void{
+        echo(self::TITLE_1);
+        print_r($finalArray);
+
+        echo(self::TITLE_2);
+        print_r($finalPositive);
+
+        echo(self::TITLE_3);
+        print_r($finalNegative);
+    }
+
+
+    /**
+     * @param array $finalArray
+     * @param array $finalPositive
+     * @param array $finalNegative
+     */
+    private function printToFile(array $finalArray, array $finalPositive, array $finalNegative) :void{
+        if (!file_exists("dictionary.txt")){
+            unlink("dictionary.txt");
+        }
+
+        $printFinalString = self::TITLE_1.print_r($finalArray, true);
+        $printFinalString = $printFinalString.self::TITLE_2.print_r($finalPositive, true);
+        $printFinalString = $printFinalString.self::TITLE_3.print_r($finalNegative, true);
+
+        file_put_contents('dictionary.txt',  $printFinalString);
     }
 }
