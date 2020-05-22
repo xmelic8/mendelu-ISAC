@@ -206,17 +206,20 @@ class NaiveBayes
 
     public function createStatistics(){
         $finalArray = [
-            "newPositiove-oldPositive" => 0,
+            "newPositive-oldPositive" => 0,
             "newNeutral-oldNeutral" => 0,
             "newNegative-oldNegative" => 0,
-            "newPositiove-oldNeutral" => 0,
-            "newPositiove-oldNegative" => 0,
+            "newPositive-oldNeutral" => 0,
+            "newPositive-oldNegative" => 0,
             "newNeutral-oldPositive" => 0,
             "newNeutral-oldNegative" => 0,
             "newNegative-oldPositive" => 0,
             "newNegative-oldNeutral" => 0,
             "count" => 0
         ];
+
+        $finalPositive = array();
+        $finalNegative = array();
 
         foreach ($this->queueInput as $value){
            if($value->getAirlineSentiment() === "positive"){
@@ -231,13 +234,15 @@ class NaiveBayes
 
            switch ($value->getMySentiment()){
                 case "positive":
-                    $finalArray["newPositiove".$nameValue]++;
+                    $finalArray["newPositive".$nameValue]++;
+                    $finalPositive[] = $value;
                     break;
                 case "neutral":
                     $finalArray["newNeutral".$nameValue]++;
                     break;
                 case "negative":
                     $finalArray["newNegative".$nameValue]++;
+                    $finalNegative[] = $value;
                     break;
                 default:
                     break;
@@ -246,6 +251,27 @@ class NaiveBayes
            $finalArray["count"]++;
         }
 
+        echo("--------Final statistics--------\n");
         print_r($finalArray);
+
+        usort($finalPositive, function($a, $b) {
+            $tmpA = $a->getCount();
+            $tmpB = $b->getCount();
+
+            return $tmpB["+"] <=> $tmpA["+"];
+        });
+
+        usort($finalNegative, function($a, $b) {
+            $tmpA = $a->getCount();
+            $tmpB = $b->getCount();
+
+            return $tmpB["-"] <=> $tmpA["-"];
+        });
+
+        echo("\n--------TOP 10 match results--------\n");
+        print_r(array_slice($finalPositive, 0, 10));
+
+        echo("\n--------10 worst match results--------\n");
+        print_r(array_slice($finalNegative, 0, 10));
     }
 }
