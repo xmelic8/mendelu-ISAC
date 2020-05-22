@@ -33,7 +33,13 @@ class SentenceStack
 
             while(!feof($file)) {
                 $line = fgets($file);
-                $this->queue[] = new Token($i, $line);
+
+                if((strpos($line, "neutral") !== 0) && (strpos($line, "positive") !== 0) && (strpos($line, "negative") !== 0)){
+                    continue;
+                }
+
+                $tmp = explode(";", $line);
+                $this->queue[] = new Token($i++, $tmp[4], $tmp[0], $tmp[1], $tmp[2], $tmp[3]);
             }
 
             fclose($file);

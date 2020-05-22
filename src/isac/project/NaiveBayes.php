@@ -9,6 +9,10 @@ use Isac\Project\SentenceStack;
 class NaiveBayes
 {
     const COUNT_ITEM_ZERO = 0;
+
+    CONST MIN_POSITIVE = 0.4;
+    CONST MAX_POSITIVE = 0.6;
+
     /**
      * @var WordsVocabularyList
      */
@@ -113,10 +117,11 @@ class NaiveBayes
         for ($i = 0; $i < count($this->queueInput); $i++){
             $countArray = $this->classification($this->queueInput[$i], count($this->documentCounterForLabels));
             $this->queueInput[$i]->setCount($countArray);
+            $this->queueInput[$i]->setMySentiment($this->howIsRating($countArray["+"]));
         }
 
-        echo "-----NEW-----\n";
-        print_r($this->queueInput);
+       // echo "-----NEW-----\n";
+       // print_r($this->queueInput);
     }
 
     /**
@@ -183,5 +188,64 @@ class NaiveBayes
         foreach ($this->queueInput as $obj){
             echo("LINE:".$obj->getID().": P(".$obj->getCount()["+"].")/N(".$obj->getCount()["-"].") ----- ".$obj->getText()."\n");
         }
+    }
+
+    /**
+     * @param float $valuePositive
+     * @return string
+     */
+    private function howIsRating(float $valuePositive) :string{
+        if($valuePositive <= self::MIN_POSITIVE){
+            return "negative";
+        }elseif($valuePositive >= self::MAX_POSITIVE){
+            return "positive";
+        }else{
+            return "neutral";
+        }
+    }
+
+    public function createStatistics(){
+        $finalArray = [
+            "newPositiove-oldPositive" => 0,
+            "newNeutral-oldNeutral" => 0,
+            "newNegative-oldNegative" => 0,
+            "newPositiove-oldNeutral" => 0,
+            "newPositiove-oldNegative" => 0,
+            "newNeutral-oldPositive" => 0,
+            "newNeutral-oldNegative" => 0,
+            "newNegative-oldPositive" => 0,
+            "newNegative-oldNeutral" => 0,
+            "count" => 0
+        ];
+
+        foreach ($this->queueInput as $value){
+           if($value->getAirlineSentiment() === "positive"){
+                $nameValue = "-oldPositive";
+           }elseif ($value->getAirlineSentiment() === "neutral"){
+                $nameValue = "-oldNeutral";
+           }elseif ($value->getAirlineSentiment() === "negative"){
+                $nameValue = "-oldNegative";
+           }else{
+                continue;
+           }
+
+           switch ($value->getMySentiment()){
+                case "positive":
+                    $finalArray["newPositiove".$nameValue]++;
+                    break;
+                case "neutral":
+                    $finalArray["newNeutral".$nameValue]++;
+                    break;
+                case "negative":
+                    $finalArray["newNegative".$nameValue]++;
+                    break;
+                default:
+                    break;
+            }
+
+           $finalArray["count"]++;
+        }
+
+        print_r($finalArray);
     }
 }
