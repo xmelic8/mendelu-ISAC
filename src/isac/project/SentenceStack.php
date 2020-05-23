@@ -30,16 +30,27 @@ class SentenceStack
     private function createQueue() :void {
         if ($file = fopen(self::BASE_DIR.$this->fileName, "r")) {
             $i = 1;
+            $oneRecord = 0;
+            $tmpNewRecord = "";
 
             while(!feof($file)) {
                 $line = fgets($file);
-
-                if((strpos($line, "neutral") !== 0) && (strpos($line, "positive") !== 0) && (strpos($line, "negative") !== 0)){
+                if(trim($line) === "||||"){
                     continue;
                 }
 
-                $tmp = explode(";", $line);
-                $this->queue[] = new Token($i++, $tmp[4], $tmp[0], $tmp[1], $tmp[2], $tmp[3]);
+                $oneRecord++;
+                $tmpNewRecord = $tmpNewRecord.(str_replace("\n", "&&&&",$line));
+
+                if($oneRecord === 5){
+                    $tmpNewRecord = mb_substr($tmpNewRecord, 0, -4);
+
+                    $tmpArray = explode("&&&&", $tmpNewRecord);
+                    $this->queue[] = new Token($i++, $tmpArray[4], $tmpArray[0], $tmpArray[1], $tmpArray[2], $tmpArray[3]);
+
+                    $oneRecord = 0;
+                    $tmpNewRecord = "";
+                }
             }
 
             fclose($file);
