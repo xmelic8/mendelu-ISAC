@@ -1,0 +1,364 @@
+--------Final statistics--------
+Array
+(
+    [newPositive-oldPositive] => 875
+    [newNeutral-oldNeutral] => 1505
+    [newNegative-oldNegative] => 4520
+    [newPositive-oldNeutral] => 414
+    [newPositive-oldNegative] => 1469
+    [newNeutral-oldPositive] => 1042
+    [newNeutral-oldNegative] => 3189
+    [newNegative-oldPositive] => 446
+    [newNegative-oldNeutral] => 1180
+    [count] => 14640
+)
+
+--------TOP 10 match results--------
+Array
+(
+    [0] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @JetBlue i deleted that tweet because one of your wonderful employees swooped in to help--faith restored. You are one of the good ones. 👍
+            [id:Isac\Project\Token:private] => 8582
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99852071005917
+                    [-] => 0.0014792899408284
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [1] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @VirginAmerica your beautiful front-end design is down right now; but it was cool to still book my ticket b/c all your back-end was secure.
+            [id:Isac\Project\Token:private] => 119
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99590163934426
+                    [-] => 0.0040983606557377
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [2] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @SouthwestAir great cabin and flight crew this morning on #578. A great smile and happy staff are signs of a happy company. Thanks.
+            [id:Isac\Project\Token:private] => 5953
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99590163934426
+                    [-] => 0.0040983606557377
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [3] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @AmericanAir I love the service and cheap upgrades American Provides! One of the best airlines ever! good food, good seats, amazing thanks!
+            [id:Isac\Project\Token:private] => 12594
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99264705882353
+                    [-] => 0.0073529411764706
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [4] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @AmericanAir Aww cool! It's nice to know they are still up above my head then. One of my faves.
+            [id:Isac\Project\Token:private] => 12114
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99264705882353
+                    [-] => 0.0073529411764706
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 0
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [5] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @AmericanAir Aww cool! It's nice to know they are still up above my head then. One of my faves.
+            [id:Isac\Project\Token:private] => 11953
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99264705882353
+                    [-] => 0.0073529411764706
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [6] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @SouthwestAir disappointed with customer service right now, my flight was only one Cancelled Flightled at my airport &amp; now I'm losing 2 days from trip
+            [id:Isac\Project\Token:private] => 6690
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99264705882353
+                    [-] => 0.0073529411764706
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [7] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @SouthwestAir it took ages for one snapchat story to load. one. ONE. I will demolish you
+            [id:Isac\Project\Token:private] => 6153
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.99206349206349
+                    [-] => 0.0079365079365079
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [8] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @SouthwestAir I just received your birthday card.  It was amazing and made me smile with joy.  Nice videos.  Thanks.
+            [id:Isac\Project\Token:private] => 5892
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.98780487804878
+                    [-] => 0.01219512195122
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => positive
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+    [9] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @united and now your rep just hung up on me after over 35 mins on hold because I asked for a supervisor. I'm furious right now.
+            [id:Isac\Project\Token:private] => 2695
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [+] => 0.98780487804878
+                    [-] => 0.01219512195122
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 1
+            [mySentiment:Isac\Project\Token:private] => positive
+        )
+
+)
+
+--------10 worst match results--------
+Array
+(
+    [0] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @USAirways Don't tell me that. Tell me what I can actually DO to reach someone. I don't mind being put on hold but it won't even do THAT.
+            [id:Isac\Project\Token:private] => 11802
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99970379146919
+                    [+] => 0.00029620853080569
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 1
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [1] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @AmericanAir - don't be jealous.  I live in Sydney and my T-shirt and jeans don't suit the office for work. I need suits and a warm jacket.
+            [id:Isac\Project\Token:private] => 12847
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99970379146919
+                    [+] => 0.00029620853080569
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => neutral
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [2] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @JetBlue they say they have no update. I don't work I don't get paid.  Jet blue has my money but no flight. Argh!
+            [id:Isac\Project\Token:private] => 8686
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.9995064165844
+                    [+] => 0.00049358341559724
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Cancelled Flight
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [3] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => Noooo don't do it, please don't do it 😩RT @JetBlue: Our fleet's on fleek. http://t.co/lsxJI0oUvR”
+            [id:Isac\Project\Token:private] => 6995
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99911190053286
+                    [+] => 0.00088809946714032
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 0
+            [negativereason:Isac\Project\Token:private] => Late Flight
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [4] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @JetBlue kids fly. Don't hire people who don't care about them. This guy. #jetblue http://t.co/clvlhfgUZw
+            [id:Isac\Project\Token:private] => 7408
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99911190053286
+                    [+] => 0.00088809946714032
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Flight Attendant Complaints
+            [negativereason_confidence:Isac\Project\Token:private] => 1
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [5] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @usairways I don't think the US site allows that (unlike http://t.co/etfjqIwUvt). Can I use a US credit if I held on http://t.co/etfjqIwUvt?
+            [id:Isac\Project\Token:private] => 11109
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99911190053286
+                    [+] => 0.00088809946714032
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => neutral
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => 
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [6] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @JetBlue if you can't guarantee parents will sit with their children, don't sell tickets with that promise! #jetblue http://t.co/HDoXiM6NZ2
+            [id:Isac\Project\Token:private] => 7405
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99911190053286
+                    [+] => 0.00088809946714032
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 1
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [7] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @JetBlue If your confirming to me that the rate won't go down again looks like I can't fly JetBlue this time around, can't afford that price
+            [id:Isac\Project\Token:private] => 8249
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99911190053286
+                    [+] => 0.00088809946714032
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 0
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 0
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [8] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @JetBlue can't link my flight from last week to my TruBlue account and 1800 num isn't answering..don't make me fly @Delta again, dont do it!
+            [id:Isac\Project\Token:private] => 6829
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99911190053286
+                    [+] => 0.00088809946714032
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 1
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+    [9] => Isac\Project\Token Object
+        (
+            [text:Isac\Project\Token:private] => @SouthwestAir can't checkin online for 2:00 flight tmrw fr. Cancun. "Undefined error" &amp; 800# not working.Family of 4 don't want Cgroup! Help
+            [id:Isac\Project\Token:private] => 6490
+            [count:Isac\Project\Token:private] => Array
+                (
+                    [-] => 0.99852071005917
+                    [+] => 0.0014792899408284
+                )
+
+            [airline_sentiment:Isac\Project\Token:private] => negative
+            [airline_sentiment_confidence:Isac\Project\Token:private] => 1
+            [negativereason:Isac\Project\Token:private] => Customer Service Issue
+            [negativereason_confidence:Isac\Project\Token:private] => 1
+            [mySentiment:Isac\Project\Token:private] => negative
+        )
+
+)
