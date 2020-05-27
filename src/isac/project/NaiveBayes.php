@@ -14,8 +14,8 @@ class NaiveBayes
     CONST MAX_POSITIVE = 0.6;
 
     CONST TITLE_1 = "--------Final statistics--------\n";
-    CONST TITLE_2 = "\n--------TOP 10 match results--------\n";
-    CONST TITLE_3 = "\n--------10 worst match results--------\n";
+    CONST TITLE_2 = "\n--------TOP 10 positive--------\n";
+    CONST TITLE_3 = "\n--------10 worst positive--------\n";
 
     CONST GET_LENGHT_FINAL_ARRAY = 10;
 
@@ -217,6 +217,7 @@ class NaiveBayes
 
         $finalPositive = array();
         $finalNegative = array();
+        $finalNeutral = array();
 
         foreach ($this->queueInput as $value){
            if($value->getAirlineSentiment() === "positive"){
@@ -236,6 +237,7 @@ class NaiveBayes
                     break;
                 case "neutral":
                     $finalArray["newNeutral".$nameValue]++;
+                    $finalNeutral[] = $value;
                     break;
                 case "negative":
                     $finalArray["newNegative".$nameValue]++;
@@ -255,29 +257,85 @@ class NaiveBayes
             return $tmpB["+"] <=> $tmpA["+"];
         });
 
+        usort($finalNeutral, function($a, $b) {
+            $tmpA = $a->getCount();
+            $tmpB = $b->getCount();
+
+            return $tmpB["+"] <=> $tmpA["+"];
+        });
+
         usort($finalNegative, function($a, $b) {
             $tmpA = $a->getCount();
             $tmpB = $b->getCount();
 
-            return $tmpB["-"] <=> $tmpA["-"];
+            return $tmpB["+"] <=> $tmpA["+"];
         });
+
+        $this->printAll($finalPositive, $finalNegative, $finalNeutral);
 
         $finalPositive = array_slice($finalPositive, 0, self::GET_LENGHT_FINAL_ARRAY);
         $finalNegative = array_slice($finalNegative, 0, self::GET_LENGHT_FINAL_ARRAY);
+        $finalNeutral = array_slice($finalNeutral, 0, self::GET_LENGHT_FINAL_ARRAY);
 
-        $this->printToTerminal($finalArray, $finalPositive, $finalNegative);
+        $this->printToTerminal($finalArray, $finalPositive, $finalNegative, $finalNeutral);
         $this->printToFile($finalArray, $finalPositive, $finalNegative);
     }
 
-    private function printToTerminal(array $finalArray, array $finalPositive, array $finalNegative) :void{
+    private function printAll(array $finalPositive, array $finalNegative, array $finalNeutral) :void{
+        if (!file_exists("all_results_positive.txt")){
+            unlink("all_results_positive.txt");
+        }
+        if (!file_exists("all_results_neutral.txt")){
+            unlink("all_results_neutral.txt");
+        }
+        if (!file_exists("all_results_negative.txt")){
+            unlink("all_results_negative.txt");
+        }
+
+        $printFinalString = "All positive\n";
+        $printFinalString = $printFinalString . "OLD      |   NEW      |   TEXT\n";
+        foreach ($finalPositive as $item){
+            $printFinalString = $printFinalString . $item->getAirlineSentiment()."   ".$item->getMySentiment()."      ".$item->getText()."\n";
+        }
+        file_put_contents('all_results_positive.txt',  $printFinalString);
+
+        $printFinalString = "All neutral\n";
+        $printFinalString = $printFinalString . "OLD      |   NEW      |   TEXT\n";
+        foreach ($finalNeutral as $item){
+            $printFinalString = $printFinalString . $item->getAirlineSentiment()."   ".$item->getMySentiment()."      ".$item->getText()."\n";
+        }
+        file_put_contents('all_results_neutral.txt',  $printFinalString);
+
+        $printFinalString = "All negative\n";
+        $printFinalString = $printFinalString . "OLD      |   NEW      |   TEXT\n";
+        foreach ($finalNegative as $item){
+            $printFinalString = $printFinalString . $item->getAirlineSentiment()."   ".$item->getMySentiment()."      ".$item->getText()."\n";
+        }
+
+        file_put_contents('all_results_negative.txt',  $printFinalString);
+    }
+
+    private function printToTerminal(array $finalArray, array $finalPositive, array $finalNegative, array $finalNeutral) :void{
         echo(self::TITLE_1);
         print_r($finalArray);
 
         echo(self::TITLE_2);
-        print_r($finalPositive);
+        echo("OLD      |   NEW      |   TEXT\n");
+        foreach ($finalPositive as $item){
+            echo($item->getAirlineSentiment()."   ".$item->getMySentiment()."      ".$item->getText()."\n");
+        }
+
+        echo("\nTOP 10 All neutral\n");
+        echo("OLD      |   NEW      |   TEXT\n");
+        foreach ($finalNeutral as $item){
+            echo($item->getAirlineSentiment()."   ".$item->getMySentiment()."      ".$item->getText()."\n");
+        }
 
         echo(self::TITLE_3);
-        print_r($finalNegative);
+        echo("OLD      |   NEW      |   TEXT\n");
+        foreach ($finalNegative as $item){
+            echo($item->getAirlineSentiment()."   ".$item->getMySentiment()."      ".$item->getText()."\n");
+        }
     }
 
 
